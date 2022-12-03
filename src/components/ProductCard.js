@@ -9,9 +9,14 @@ const ProductCard = ({ product }) => {
   const {pathname} = useLocation();
   return (
     <div
-      className='shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900'
+      className='shadow-lg rounded-3xl border relative p-3 flex flex-col text-indigo-900'
       key={product._id}
     >
+      {
+        pathname.includes("cart") && pathname.includes("cart") &&<div className="bg-indigo-500 absolute text-white w-6 h-6 rounded-full grid place-items-center top-2 right-2 ">
+        <p>{product.quantity}</p>
+      </div>
+      }
       <div className='h-52 w-52 mx-auto'>
         <img src={product.image} alt={product.model} />
       </div>
